@@ -1,0 +1,14 @@
+.header {
+    background-color: var(--orange-100);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.25rem 0;
+    font-size: 1.8rem;
+    font-family: 'Corben', serif;
+}
+
+.header img {
+    height: 4rem;
+    margin-right: 0.7rem;
+}

@@ -1,0 +1,43 @@
+:root {
+    --white: #FFFDFA;
+    --beige-100: #FAF7F3;
+    --beige-200: #F7F4EF;
+    --beige-300: #D3CCC3;
+    --brown-600: #956149;
+    --brown-700: #552611;
+    --brown-800: #553D37;
+  
+    --orange-100: #FFE8D6;
+    --orange-200: #F2D6BE;
+    --orange-300: #F5AE77;
+    --orange-400: #E48A45;
+  
+    --red-500: #F75A68;
+  }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--orange-200);
+    color: var(--brown-700);
+    -webkit-font-smoothing: antialiased;
+}
+
+body, input, textarea, button {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.avatar {
+    box-sizing: initial; 
+    width: 3rem;
+    height: 3rem;
+    border-radius: 8px;
+    border: 2px solid var(--beige-200);
+    outline: 2px solid var(--orange-300);
+}
