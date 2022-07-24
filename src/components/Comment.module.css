@@ -4,11 +4,6 @@
     gap: 1rem;
 }
 
-.comment > img {
-    border: none;
-    outline: none;
-}
-
 .commentBox {
     flex: 1;
 }
