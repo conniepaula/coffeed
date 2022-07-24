@@ -6,6 +6,10 @@
 }  
 
 .avatarWithBorder {
+    box-sizing: initial; 
+    width: 3rem;
+    height: 3rem;
+    border-radius: 8px;
     border: 2px solid var(--beige-200);
     outline: 2px solid var(--orange-300);
 }
