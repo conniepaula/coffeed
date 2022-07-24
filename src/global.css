@@ -3,6 +3,7 @@
     --beige-100: #FAF7F3;
     --beige-200: #F7F4EF;
     --beige-300: #D3CCC3;
+    
     --brown-600: #956149;
     --brown-700: #552611;
     --brown-800: #553D37;
@@ -13,6 +14,11 @@
     --orange-400: #E48A45;
   
     --red-500: #F75A68;
+  }
+
+  :focus {
+    outline: transparent;
+    box-shadow: 0 0 0 2px var(--orange-400); 
   }
 
 * {
