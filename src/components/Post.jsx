@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Comment } from "./Comment";
 import styles from "./Post.module.css";
 
@@ -8,11 +9,40 @@ export function Post({ author, publishedAt, postContent }) {
     hour: "2-digit",
     minute: "2-digit",
   }).format(publishedAt);
+
+  const [comments, setComments] = useState([]);
+
+  const [newCommentText, setNewCommentText] = useState("");
+
+  const isCommentBoxEmpty = newCommentText.length === 0;
+
+  function handleSubmitComment() {
+    event.preventDefault();
+    const newCommentText = event.target.comment.value;
+    setComments([...comments, newCommentText]);
+    setNewCommentText("");
+  }
+
+  function handleNewCommentChange() {
+    event.target.setCustomValidity("");
+    setNewCommentText(event.target.value);
+  }
+
+  function handleInvalidComment() {
+    event.target.setCustomValidity("Please enter a comment before submitting.");
+  }
+
+  function deleteComment(deletedComment) {
+    const newCommentList = comments.filter((comment) => {
+      return comment !== deletedComment;
+    });
+    setComments(newCommentList);
+  }
   return (
     <article className={styles.post}>
       <header>
         <div className={styles.author}>
-          <img className="avatar" src={author.avatarURL} /> 
+          <img className="avatar" src={author.avatarURL} />
           <div className={styles.authorInfo}>
             <strong>{author.name}</strong>
             <span>{author.title}</span>
@@ -23,28 +53,46 @@ export function Post({ author, publishedAt, postContent }) {
         </time>
       </header>
       <div className={styles.content}>
-        {postContent.map(item => {
+        {postContent.map((item) => {
           if (item.type === "paragraph") {
-            return <p>{item.content}</p>;
-          }
-          else if (item.type  === "link") {
-            return <p><a href={item.content}>{item.content}</a></p>;
+            return <p key={item.content}>{item.content}</p>;
+          } else if (item.type === "link") {
+            return (
+              <p key={item.content}>
+                <a href={item.content}>{item.content}</a>
+              </p>
+            );
           }
         })}
       </div>
 
-      <form className={styles.commentForm}>
+      <form onSubmit={handleSubmitComment} className={styles.commentForm}>
         <strong> Share Your Thoughts</strong>
-        <textarea placeholder="Leave a Comment..." />
+        <textarea
+          required
+          onInvalid={handleInvalidComment}
+          name="comment"
+          placeholder="Leave a Comment..."
+          value={newCommentText}
+          onChange={handleNewCommentChange}
+        />
         <footer>
-          <button type="submit">Publish</button>
+          <button type="submit" disabled={isCommentBoxEmpty}>
+            Post
+          </button>
         </footer>
       </form>
 
       <div className={styles.commentList}>
-        <Comment />
-        <Comment />
-        <Comment />
+        {comments.map((comment) => {
+          return (
+            <Comment
+              key={comment}
+              content={comment}
+              onDeleteComment={deleteComment}
+            />
+          );
+        })}
       </div>
     </article>
   );

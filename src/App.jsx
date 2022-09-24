@@ -9,7 +9,7 @@ const posts = [
     id: 1,
     author: {
       name: "Joanna Richardson",
-      title: "Coffee Enthusiast",
+      title: "Coffee Lover",
       avatarURL: "https://i.ibb.co/KrhNshn/woman1.jpg",
     },
     postContent: [

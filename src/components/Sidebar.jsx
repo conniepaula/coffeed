@@ -13,8 +13,8 @@ export function Sidebar() {
       />
       <div className={styles.profile}>
 
-        <Avatar src="https://i.ibb.co/KrhNshn/woman1.jpg" alt="Profile Picture" />
-        <strong>Jen McFarlan</strong>
+        <Avatar src="https://i.ibb.co/k32Vkd6/man1.jpg" alt="Profile Picture" />
+        <strong>Jared McFarlan</strong>
         <span>Oat Milk Enthusiast</span>
       </div>
 
